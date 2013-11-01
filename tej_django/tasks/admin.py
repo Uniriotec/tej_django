@@ -15,6 +15,7 @@ class TaskAdmin(admin.ModelAdmin):
         ]
 
     list_display = ('label','is_done')
+    list_filter = ['is_done',]
 
 
 admin.site.register(Task, TaskAdmin)
