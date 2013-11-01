@@ -1,5 +1,20 @@
 # Django settings for tej_django project.
 
+import os
+
+# cria uma funcao dinamicamente que funciona da seguinte forma:
+# LOCAL('alguma_string') retorna o caminho completo do projeto
+# colocando no final 'alguma_string'
+# Ex:
+# se o projeto estiver em "/home/seu_usuario/meus_projetos/tej_django/tej_django"
+# a funcao iria retornar "/home/seu_usuario/meus_projetos/tej_django/tej_django/alguma_string"
+# assim onde quer que seu projeto esteja ele vai sempre colocar o caminho completo
+# para o mesmo.
+LOCAL = lambda x: os.path.join(os.path.sep.join(
+                os.path.abspath(
+                    os.path.dirname(__file__)).split(os.path.sep)[:-1]), x)
+
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -11,7 +26,7 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': '',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
