@@ -2,4 +2,9 @@
 from django.contrib import admin
 from tej_django.tasks.models import Task
 
-admin.site.register(Task, admin.ModelAdmin)
+class TaskAdmin(admin.ModelAdmin):
+
+    list_display = ('label',)
+
+
+admin.site.register(Task, TaskAdmin)
