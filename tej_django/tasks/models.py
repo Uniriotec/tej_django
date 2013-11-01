@@ -1,3 +1,8 @@
 from django.db import models
 
-# Create your models here.
+class Task(models.Model):
+
+    label = models.CharField("Label", max_length=250)
+
+    def __unicode__(self):
+        return self.content
