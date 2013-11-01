@@ -15,5 +15,8 @@ class Task(models.Model):
             return True
         return False
 
+    is_urgent.boolean = True
+    is_urgent.short_description = 'Is Urgent?'
+
     def __unicode__(self):
         return "%s - %s" % (self.label, self.is_done)
