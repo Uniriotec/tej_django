@@ -7,5 +7,7 @@ class Task(models.Model):
     """
     label = models.CharField("Label", max_length=250)
 
+    is_done = models.BooleanField("Is Done?", default=False)
+
     def __unicode__(self):
-        return self.label
+        return "%s - %s" % (self.label, self.is_done)
