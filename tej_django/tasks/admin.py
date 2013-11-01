@@ -15,6 +15,8 @@ class TaskAdmin(admin.ModelAdmin):
         ]
 
     list_display = ('label','is_done')
+    list_editable = ('is_done',)
+
     list_filter = ['is_done',]
     search_fields = ['label',]
 
