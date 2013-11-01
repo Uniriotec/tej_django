@@ -14,7 +14,7 @@ class TaskAdmin(admin.ModelAdmin):
            )
         ]
 
-    list_display = ('label','is_done')
+    list_display = ('label','is_done','is_urgent')
     list_editable = ('is_done',)
 
     list_filter = ['is_done',]
