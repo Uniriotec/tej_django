@@ -5,6 +5,10 @@ class Task(models.Model):
     """
     Model que é responsavel pelas Tasks
     """
+
+    class Meta:
+        ordering = ['is_done','label']
+
     label = models.CharField("Label", max_length=250)
 
     is_done = models.BooleanField("Is Done?", default=False)
