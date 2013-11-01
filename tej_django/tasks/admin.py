@@ -4,7 +4,7 @@ from tej_django.tasks.models import Task
 
 class TaskAdmin(admin.ModelAdmin):
 
-    list_display = ('label',)
+    list_display = ('label','is_done')
 
 
 admin.site.register(Task, TaskAdmin)
