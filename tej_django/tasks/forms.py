@@ -9,3 +9,10 @@ class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
 
+
+    def clean_label(self):
+        data = self.cleaned_data['label']
+        if data.lower().count("bobeira") > 0:
+            raise forms.ValidationError("Sem bobeira nas Tasks")
+
+        return data

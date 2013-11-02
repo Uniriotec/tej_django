@@ -34,12 +34,14 @@ def edit(request, task_id):
 
         if form.is_valid():
             form.save()
-            return redirect('tasks:detail',task_id=task_id)
 
-    return render_to_response('task_detail.html',
-                {
-                    'task': task,
-                    'form':form
-                },
-                context_instance=RequestContext(request)
-           )
+        else:
+            return render_to_response('task_detail.html',
+                    {
+                        'task': task,
+                        'form':form
+                    },
+                    context_instance=RequestContext(request)
+               )
+
+    return redirect('tasks:detail',task_id=task_id)
