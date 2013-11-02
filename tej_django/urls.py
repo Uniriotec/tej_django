@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^tasks/', include('tej_django.tasks.urls')),
+    url(r'^tasks/', include('tej_django.tasks.urls', namespace="tasks")),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
