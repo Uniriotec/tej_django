@@ -1,3 +1,5 @@
+{% extends 'utils/base.html' %}
+
 <ul>
 {% for task in tasks %}
     <li><a href="{% url 'detail' task.id %}">{{task.label}}</a></li>
