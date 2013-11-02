@@ -7,8 +7,7 @@
     <h1>{{ task.label }}</h1>
     <form action="{% url 'tasks:edit' task.id %}" method="post">
         {% csrf_token %}
-        <input type="checkbox" name="is_done" id="is_done" value="is_done" {% if task.is_done %}checked{% endif %} />
-        <label for="is_done">Is Done?</label></br>
+        {{ form.as_p }}
         <input type="submit" value="Save" />
     </form>
 
