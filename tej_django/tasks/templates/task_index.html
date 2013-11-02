@@ -1,5 +1,5 @@
 <ul>
 {% for task in tasks %}
-    <li>{{task}}</li>
+    <li><a href="/tasks/{{task.id}}">{{task.label}}</a></li>
 {% endfor %}
 </ul>
