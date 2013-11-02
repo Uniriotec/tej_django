@@ -1,5 +1,5 @@
 {% extends 'utils/base.html' %}
-
+{% block title %}{{ block.super }} | Index{% endblock %}
 {% block content %}
     <ul>
     {% for task in tasks %}
