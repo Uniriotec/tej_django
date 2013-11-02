@@ -16,3 +16,12 @@ class TaskForm(forms.ModelForm):
             raise forms.ValidationError("Sem bobeira nas Tasks")
 
         return data
+
+    def clean(self):
+        cleaned_data = self.cleaned_data
+        label = cleaned_data.get("label")
+        is_done = cleaned_data.get("is_done")
+        if label.lower().count("terminada") > 0 and not is_done:
+            raise forms.ValidationError("Inconsistencia!!!")
+
+        return cleaned_data
