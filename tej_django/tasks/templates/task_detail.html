@@ -1,4 +1,10 @@
-<h1>{{task.label}}</h1>
-<h2>Status: {{task.is_done}}</h2>
+{% extends 'utils/base.html' %}
+{% block title %}{{ block.super }} | Detail de {{task.label}}{% endblock %}
 
-<a href="{% url 'index' %}">Retornar a lista de todas as Tasks</a>
+{% block content %}
+    <h1>{{task.label}}</h1>
+    <h2>Status: {{task.is_done}}</h2>
+
+    <a href="{% url 'index' %}">Retornar a lista de todas as Tasks</a>
+
+{% endblock %}
