@@ -2,9 +2,16 @@
 {% block title %}{{ block.super }} | Detail de {{task.label}}{% endblock %}
 
 {% block content %}
-    <h1>{{task.label}}</h1>
-    <h2>Status: {{task.is_done}}</h2>
 
-    <a href="{% url 'index' %}">Retornar a lista de todas as Tasks</a>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <h1>{{ task.label }}</h1>
+    <form action="{% url 'tasks:edit' task.id %}" method="post">
+        {% csrf_token %}
+        <input type="radio" name="is_done" id="is_done" value="{{ task.is_done }}" />
+        <label for="is_done">Is Done?</label></br>
+        <input type="submit" value="Save" />
+    </form>
+
+    <a href="{% url 'tasks:index' %}">Retornar a lista de todas as Tasks</a>
 
 {% endblock %}

@@ -3,7 +3,7 @@
 {% block content %}
     <ul>
     {% for task in tasks %}
-        <li><a href="{% url 'detail' task.id %}">{{task.label}}</a></li>
+        <li><a href="{% url 'tasks:detail' task.id %}">{{task.label}}</a></li>
     {% endfor %}
     </ul>
 
