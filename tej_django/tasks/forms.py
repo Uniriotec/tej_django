@@ -19,7 +19,7 @@ class TaskForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = self.cleaned_data
-        label = cleaned_data.get("label")
+        label = cleaned_data.get("label","")
         is_done = cleaned_data.get("is_done")
         if label.lower().count("terminada") > 0 and not is_done:
             raise forms.ValidationError("Inconsistencia!!!")
